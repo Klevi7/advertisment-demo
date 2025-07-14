@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+}
+
+.site-header, .site-footer {
+  background: #222;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.news-article {
+  background: white;
+  padding: 30px;
+  border-radius: 6px;
+}
+
+.ad-slot {
+  background: #e0e0e0;
+  border: 2px dashed #999;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .ad-slot {
+    font-size: 12px;
+    padding: 15px;
+  }
+}
