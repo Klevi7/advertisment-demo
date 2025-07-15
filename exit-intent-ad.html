@@ -1,1 +1,59 @@
-<!-- Exit-Intent Popup Ad -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exit-Intent Ad</title>
+  <style>
+    body { font-family: sans-serif; height: 1500px; }
+    .exit-popup {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.75);
+      display: flex; align-items: center; justify-content: center;
+      display: none;
+      z-index: 1000;
+    }
+    .exit-popup-content {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      width: 80%;
+      max-width: 400px;
+    }
+    .exit-popup button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #ef4444;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Exit-Intent Demo Page</h2>
+<p>Move your mouse to the top of the window to trigger the popup.</p>
+
+<div class="exit-popup" id="exitPopup">
+  <div class="exit-popup-content">
+    <h3>Wait! Don’t leave yet 🚨</h3>
+    <p>Get 50% off if you stay now!</p>
+    <button onclick="document.getElementById('exitPopup').style.display='none'">Continue</button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("mouseout", function(e) {
+    if (e.clientY < 10) {
+      document.getElementById("exitPopup").style.display = "flex";
+    }
+  });
+</script>
+
+</body>
+</html>
