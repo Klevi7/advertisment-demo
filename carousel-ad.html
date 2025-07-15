@@ -1,1 +1,39 @@
-<!-- Carousel Rotator Ad -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carousel Rotator Ad</title>
+  <style>
+    body { font-family: sans-serif; background: #f9fafb; padding: 50px; text-align: center; }
+    .carousel-container { position: relative; width: 80%; max-width: 600px; margin: 0 auto; overflow: hidden; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
+    .carousel-slide { min-width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; }
+    .slide1 { background: #3b82f6; }
+    .slide2 { background: #10b981; }
+    .slide3 { background: #f97316; }
+  </style>
+</head>
+<body>
+
+<h2>Ad Carousel Rotator</h2>
+<div class="carousel-container">
+  <div class="carousel-track" id="track">
+    <div class="carousel-slide slide1">Ad 1: Summer Sale</div>
+    <div class="carousel-slide slide2">Ad 2: Free Shipping</div>
+    <div class="carousel-slide slide3">Ad 3: New Arrivals</div>
+  </div>
+</div>
+
+<script>
+  const track = document.getElementById('track');
+  let index = 0;
+  setInterval(() => {
+    index = (index + 1) % 3;
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }, 3000);
+</script>
+
+</body>
+</html>
