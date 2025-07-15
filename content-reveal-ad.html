@@ -1,1 +1,46 @@
 <!-- Content Reveal Ad -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Reveal Ad</title>
+  <style>
+    body { font-family: sans-serif; background: #f9fafb; padding: 40px; }
+    .locked-content {
+      padding: 20px;
+      border: 2px dashed #ccc;
+      text-align: center;
+      margin: 20px 0;
+      background: #fffbe6;
+    }
+    .ad-banner {
+      background: #3b82f6;
+      color: white;
+      padding: 16px;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Exclusive Article</h2>
+<p>This article contains premium content. Unlock it by clicking the sponsor message below.</p>
+
+<div class="ad-banner" onclick="revealContent()">🔓 Click here to unlock the content</div>
+
+<div id="lockedContent" class="locked-content" style="display: none;">
+  🎉 Thank you! Here is your exclusive content: “The 10 Hidden Tricks to Triple Your Productivity.”
+</div>
+
+<script>
+  function revealContent() {
+    document.getElementById("lockedContent").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
