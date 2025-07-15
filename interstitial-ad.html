@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Interstitial Ad Demo</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: #e2e8f0;
+    height: 2000px;
+  }
+  #interstitialOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100000;
+    opacity: 0;
+    pointer-events: none;
+  }
+  #interstitialAd {
+    background: white;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 14px;
+    padding: 30px 25px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+  }
+  #interstitialAd h2 {
+    margin-top: 0;
+    color: #333;
+  }
+  #interstitialAd p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  #interstitialAd button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(102, 126, 234, 0.6);
+    transition: background-color 0.3s ease;
+  }
+  #interstitialAd button:hover {
+    background: #5764c6;
+  }
+  #interstitialCloseBtn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #e74c3c;
+    border: none;
+    color: white;
+    font-size: 22px;
+    padding: 6px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.8);
+  }
+</style>
+</head>
+<body>
+
+<h1 style="text-align:center; margin-top: 80px;">Welcome to the Website</h1>
+<p style="max-width:600px; margin: 20px auto; text-align:center; font-size:1.1rem; color:#444;">
+  Scroll down or browse the page. An interstitial ad will appear shortly.
+</p>
+
+<div id="interstitialOverlay" role="dialog" aria-modal="true" aria-label="Interstitial advertisement">
+  <div id="interstitialAd">
+    <button id="interstitialCloseBtn" aria-label="Close interstitial ad">✕</button>
+    <h2>Exclusive Offer!</h2>
+    <p>Sign up now and get <strong>30% OFF</strong> your next purchase!</p>
+    <button id="interstitialActionBtn" aria-label="Sign up now">Sign Up</button>
+  </div>
+</div>
+
+<script>
+  const interstitialOverlay = document.getElementById('interstitialOverlay');
+  const interstitialCloseBtn = document.getElementById('interstitialCloseBtn');
+  const interstitialActionBtn = document.getElementById('interstitialActionBtn');
+
+  // Show the interstitial ad after 3 seconds
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      interstitialOverlay.style.opacity = '1';
+      interstitialOverlay.style.pointerEvents = 'auto';
+    }, 3000);
+  });
+
+  interstitialCloseBtn.addEventListener('click', () => {
+    interstitialOverlay.style.opacity = '0';
+    interstitialOverlay.style.pointerEvents = 'none';
+  });
+
+  interstitialActionBtn.addEventListener('click', () => {
+    alert('Redirecting to sign-up page...');
+    // Replace with actual URL:
+    // window.location.href = 'https://yourwebsite.com/signup';
+  });
+</script>
+
+</body>
+</html>
