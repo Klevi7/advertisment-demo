@@ -1,1 +1,59 @@
 <!-- Rewarded Ad -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rewarded Ad</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; background: #f3f4f6; padding: 50px; }
+    .hidden-section {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: #d1fae5;
+      border-radius: 8px;
+    }
+    .video-box {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 20px;
+      background: black;
+      height: 300px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Download Premium File</h2>
+<div class="video-box" id="videoBox">
+  ⏳ Watch this ad to unlock the file...
+</div>
+<p>Ad ends in <span id="countdown">10</span> seconds</p>
+
+<div class="hidden-section" id="rewardContent">
+  ✅ Download is now available: <a href="#">Click here to download your file</a>
+</div>
+
+<script>
+  let seconds = 10;
+  const countdown = document.getElementById("countdown");
+  const rewardContent = document.getElementById("rewardContent");
+
+  const timer = setInterval(() => {
+    seconds--;
+    countdown.textContent = seconds;
+    if (seconds <= 0) {
+      clearInterval(timer);
+      rewardContent.style.display = "block";
+    }
+  }, 1000);
+</script>
+
+</body>
+</html>
