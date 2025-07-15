@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sticky Header Ad Demo</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    min-height: 2000px;
+    padding-top: 60px; /* Leave space for header */
+    background: #f9fafb;
+  }
+  #stickyHeaderAd {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px 30px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    z-index: 10000;
+  }
+  #stickyHeaderAd button {
+    background: white;
+    border: none;
+    color: #764ba2;
+    font-weight: 700;
+    padding: 8px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(118, 75, 162, 0.5);
+    transition: background-color 0.3s ease;
+  }
+  #stickyHeaderAd button:hover {
+    background: #d5ccf8;
+  }
+  #stickyHeaderCloseBtn {
+    background: transparent;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0 10px;
+    cursor: pointer;
+    border: none;
+    line-height: 1;
+  }
+</style>
+</head>
+<body>
+
+<div id="stickyHeaderAd" role="region" aria-label="Sticky header advertisement">
+  <div>
+    🚀 New arrivals are here! Check them out now.
+  </div>
+  <div>
+    <button id="stickyHeaderActionBtn" aria-label="Browse new arrivals">Browse</button>
+    <button id="stickyHeaderCloseBtn" aria-label="Close header ad">✕</button>
+  </div>
+</div>
+
+<script>
+  const stickyHeaderAd = document.getElementById('stickyHeaderAd');
+  const stickyHeaderCloseBtn = document.getElementById('stickyHeaderCloseBtn');
+  const stickyHeaderActionBtn = document.getElementById('stickyHeaderActionBtn');
+
+  stickyHeaderCloseBtn.addEventListener('click', () => {
+    stickyHeaderAd.style.display = 'none';
+  });
+
+  stickyHeaderActionBtn.addEventListener('click', () => {
+    alert('Redirecting to new arrivals page...');
+    // Replace with real link:
+    // window.location.href = 'https://yourshop.example.com/new-arrivals';
+  });
+</script>
+
+</body>
+</html>
