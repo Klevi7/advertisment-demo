@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sticky Footer Ad Demo</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    min-height: 2000px; /* For scroll demo */
+    padding-bottom: 60px; /* Leave space for footer */
+    background: #f4f6f8;
+  }
+  #stickyFooterAd {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    color: white;
+    padding: 15px 30px;
+    box-shadow: 0 -4px 15px rgba(255, 126, 95, 0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    z-index: 10000;
+  }
+  #stickyFooterAd button {
+    background: white;
+    border: none;
+    color: #ff7e5f;
+    font-weight: 700;
+    padding: 8px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255, 126, 95, 0.5);
+    transition: background-color 0.3s ease;
+  }
+  #stickyFooterAd button:hover {
+    background: #ffd8c5;
+  }
+  #stickyFooterCloseBtn {
+    background: transparent;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0 10px;
+    cursor: pointer;
+    border: none;
+    line-height: 1;
+  }
+</style>
+</head>
+<body>
+
+<div id="stickyFooterAd" role="region" aria-label="Sticky footer advertisement">
+  <div>
+    🔥 Get 25% OFF your first order! Use code <strong>WELCOME25</strong> at checkout.
+  </div>
+  <div>
+    <button id="stickyFooterActionBtn" aria-label="Shop now">Shop Now</button>
+    <button id="stickyFooterCloseBtn" aria-label="Close footer ad">✕</button>
+  </div>
+</div>
+
+<script>
+  const stickyFooterAd = document.getElementById('stickyFooterAd');
+  const stickyFooterCloseBtn = document.getElementById('stickyFooterCloseBtn');
+  const stickyFooterActionBtn = document.getElementById('stickyFooterActionBtn');
+
+  stickyFooterCloseBtn.addEventListener('click', () => {
+    stickyFooterAd.style.display = 'none';
+  });
+
+  stickyFooterActionBtn.addEventListener('click', () => {
+    alert('Redirecting to shop page...');
+    // You can replace this with actual navigation, e.g.
+    // window.location.href = 'https://yourshop.example.com';
+  });
+</script>
+
+</body>
+</html>
