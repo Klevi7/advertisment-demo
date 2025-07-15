@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Floating Corner Closeable Ad</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
+    margin: 40px;
+    height: 1500px; /* for scroll */
+  }
+  #floatingAd {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 220px;
+    background: #0b79d0;
+    color: white;
+    padding: 15px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(11, 121, 208, 0.6);
+    z-index: 10000;
+    overflow-y: auto;
+  }
+  #floatingAd h4 {
+    margin-top: 0;
+  }
+  #floatingAd img {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .ad-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #e74c3c;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.7);
+  }
+</style>
+</head>
+<body>
+
+<div id="floatingAd" aria-label="Floating corner advertisement">
+  <h4>Floating Ad</h4>
+  <p>Subscribe now and get a free ebook!</p>
+  <img src="https://images.unsplash.com/photo-1526318472351-3c0b3b56e79b?auto=format&fit=crop&w=400&q=80" alt="Free ebook" />
+  <button id="floatingCloseBtn" class="ad-close-btn" aria-label="Close floating ad">✕</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+  const floatingAd = document.getElementById('floatingAd');
+  const floatingCloseBtn = document.getElementById('floatingCloseBtn');
+
+  floatingCloseBtn.addEventListener('click', () => {
+    gsap.to(floatingAd, {opacity: 0, scale: 0.7, duration: 0.4, ease: "power2.in", onComplete: () => {
+      floatingAd.style.display = 'none';
+    }});
+  });
+</script>
+
+</body>
+</html>
