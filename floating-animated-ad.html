@@ -1,1 +1,34 @@
-<!-- Floating Corner Animated Ad -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Floating Animated Ad</title>
+  <style>
+    body { font-family: sans-serif; height: 1500px; background: #f3f4f6; }
+    .floating-ad {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #facc15;
+      padding: 16px 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      animation: bounce 2s infinite;
+      font-weight: bold;
+      z-index: 1000;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="floating-ad">
+  💡 Don’t miss this offer!
+</div>
+
+</body>
+</html>
