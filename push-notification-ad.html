@@ -1,1 +1,58 @@
-<!-- Push Notification Style Ad -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Push Notification Style Ad</title>
+  <style>
+    body { font-family: sans-serif; background: #f3f4f6; height: 1500px; }
+    .push-ad {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 16px;
+      width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      animation: slideIn 0.5s ease-out;
+      z-index: 9999;
+    }
+    .push-ad img {
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+    }
+    .push-ad-content {
+      flex-grow: 1;
+      font-size: 0.95rem;
+    }
+    .push-ad-close {
+      cursor: pointer;
+      font-weight: bold;
+      color: #999;
+      font-size: 18px;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(-120%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="push-ad" id="pushAd">
+  <img src="https://via.placeholder.com/40" alt="Icon">
+  <div class="push-ad-content">
+    <strong>Special Alert</strong><br>
+    Click here to learn more!
+  </div>
+  <div class="push-ad-close" onclick="document.getElementById('pushAd').remove()">×</div>
+</div>
+
+</body>
+</html>
