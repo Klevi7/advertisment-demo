@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Click-to-Fullscreen Scroller Ad</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
+    margin: 40px;
+    display: flex;
+    justify-content: center;
+  }
+  #fullscreenAd {
+    width: 320px;
+    height: 280px;
+    cursor: pointer;
+    overflow-y: auto;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+  }
+  #fullscreenAd h3 {
+    margin-top: 0;
+  }
+  #fullscreenAd ul {
+    padding-left: 20px;
+  }
+  #fullscreenAd img {
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .ad-close-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #e74c3c;
+    border: none;
+    color: white;
+    font-size: 22px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(231, 76, 60, 0.8);
+    display: none;
+    z-index: 9999;
+  }
+  .ad-close-btn.show {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div id="fullscreenAd" tabindex="0" role="button" aria-label="Click to expand fullscreen scroller ad">
+  <h3>Click-to-Fullscreen Scroller</h3>
+  <p>Scroll our exclusive deals:</p>
+  <ul>
+    <li>✔ Product A - Best Price</li>
+    <li>✔ Product B - New Arrival</li>
+    <li>✔ Product C - Limited Edition</li>
+    <li>✔ Product D - Free Shipping</li>
+    <li>✔ Product E - Special Discount</li>
+  </ul>
+  <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Example product" />
+</div>
+<button id="fullscreenCloseBtn" class="ad-close-btn" aria-label="Close fullscreen ad">✕</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+  const fullscreenAd = document.getElementById('fullscreenAd');
+  const fullscreenCloseBtn = document.getElementById('fullscreenCloseBtn');
+
+  fullscreenAd.addEventListener('click', () => {
+    if (document.fullscreenElement !== fullscreenAd) {
+      fullscreenAd.style.overflowY = 'auto';
+      fullscreenAd.requestFullscreen().then(() => {
+        fullscreenCloseBtn.classList.add('show');
+        gsap.fromTo(fullscreenAd, {opacity: 0, scale: 0.9}, {opacity: 1, scale: 1, duration: 0.5, ease: "power3.out"});
+      }).catch(() => {
+        alert("Fullscreen API is not supported or permission denied.");
+      });
+    }
+  });
+
+  fullscreenCloseBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.exitFullscreen();
+  });
+
+  document.addEventListener('fullscreenchange', () => {
+    if (document.fullscreenElement !== fullscreenAd) {
+      fullscreenCloseBtn.classList.remove('show');
+    }
+  });
+</script>
+
+</body>
+</html>
