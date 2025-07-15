@@ -1,1 +1,43 @@
 <!-- Scroll Triggered Ad -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scroll-Triggered Ad</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; height: 2000px; background: #f8fafc; }
+    .ad-box {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #16a34a;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Scroll to Reveal the Ad</h2>
+<p>Scroll down the page to trigger the ad to appear.</p>
+
+<div class="ad-box" id="scrollAd">
+  🎯 Limited Time Deal! Click to save 60%.
+</div>
+
+<script>
+  window.addEventListener("scroll", function () {
+    const ad = document.getElementById("scrollAd");
+    if (window.scrollY > 500) {
+      ad.style.display = "block";
+    }
+  });
+</script>
+
+</body>
+</html>
